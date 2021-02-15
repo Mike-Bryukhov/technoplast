@@ -20,7 +20,7 @@ class Supplier(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return f'{self.pk}_{self.supplier_name}'  # for visual representation at the admin site part
+        return f'{self.pk}_{self.supplier_name}'
 
 
 class ProductType(models.Model):
@@ -40,30 +40,12 @@ class ProductType(models.Model):
         return self.prod_type
 
 
-'''At the moment there's no need for separate measuring units, but that must be requested later'''
-# class Measure(models.Model):
-#     UNITS = (
-#         ('кг', 'кг'),
-#         ('шт', 'шт'),
-#         ('упаковка', 'упаковка')
-#     )
-#     units = models.CharField('Единицы измерения', max_length=15, choices=UNITS)
-#
-#     class Meta:
-#         verbose_name = 'Единицы измерения'
-#         verbose_name_plural = 'Единицы измерения'
-#
-#     def __str__(self):
-#         return self.units
-
-
 class ProductOrder(models.Model):
     """Suppose to be a base for product ordering form"""
     supplier_name = models.ForeignKey(Supplier, on_delete=models.PROTECT, verbose_name='Имя поставщика')
     product_type = models.ForeignKey(ProductType, on_delete=models.PROTECT, verbose_name='Тип тары')
     product_quantity = models.PositiveSmallIntegerField('Количество', default=1)
-    # units_type = models.ForeignKey(Measure, on_delete=models.PROTECT, verbose_name='Единицы измерения')
-    order_datetime = models.DateTimeField(auto_now_add=True)
+    order_datetime = models.DateTimeField('Дата заказа', auto_now_add=True)
     mailing_status = models.BooleanField('Отправлено', default=False)
 
     class Meta:
