@@ -1,4 +1,4 @@
-"""Here we store code concerning all business logic"""
+"""Here we store code concerning all business logic including forms"""
 
 from django.forms import modelform_factory  # ModelForm
 from .models import *
