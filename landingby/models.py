@@ -1,15 +1,14 @@
 from django.db import models
-''' Возможно надо будет пересмотреть механики вокруг булевых "маркеров". '''
 
 
 class Supplier(models.Model):
-    """This entity is Not intended as active user at the moment, only for database records;
-    supplier unique ID is implemented by framework itself"""
+    """This entity is Not intended as active 'user record' at the moment, only for database;
+    supplier unique ID is implemented by framework itself.
+    Boolean "markers" probably will be refactored on customers demand"""
 
-    """ Спросить про желаемую сортировку !!!!!! """
     supplier_name = models.CharField('Имя поставщика:', max_length=50)
-    supplier_mobile = models.PositiveIntegerField('Телефон поставщика: +380')  # длинна номера?
-    supplier_email = models.EmailField('@mail:')  # нужна валидация самой записи ч-з регулярки.
+    supplier_mobile = models.PositiveIntegerField('Телефон поставщика: +380')  # work in progress
+    supplier_email = models.EmailField('@mail:')  # work in progress
     supplier_status = models.BooleanField('Статус "Поставщик"', default=True)
     customer_status = models.BooleanField('Статус "Покупатель"', default=False)
     loyalty_status = models.BooleanField('Является участником программы лояльности', default=False)
@@ -24,7 +23,7 @@ class Supplier(models.Model):
 
 
 class ProductType(models.Model):
-    """  """                            # Ещё стрельнет способ выбора....
+    """ Only a simple choice now. Probably will be refactored on customers demand"""
     PRODUCT_CHOICES = [
         ('мешки, кг', 'Мешки - кг'),
         ('ящики, шт', 'Ящики - шт'),
@@ -41,7 +40,7 @@ class ProductType(models.Model):
 
 
 class ProductOrder(models.Model):
-    """Suppose to be a base for product ordering form"""
+    """Suppose to be a 'base' of the product ordering form"""
     supplier_name = models.ForeignKey(Supplier, on_delete=models.PROTECT, verbose_name='Имя поставщика')
     product_type = models.ForeignKey(ProductType, on_delete=models.PROTECT, verbose_name='Тип тары')
     product_quantity = models.PositiveSmallIntegerField('Количество', default=1)

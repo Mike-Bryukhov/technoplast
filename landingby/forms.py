@@ -17,7 +17,7 @@ class SupplierForm(forms.ModelForm):
 
 class OrderForm(forms.ModelForm):
     product_type = forms.ModelChoiceField(queryset=ProductType.objects.all(),
-                                     widget=forms.widgets.Select(attrs={'class': 'form'}))
+                                          widget=forms.widgets.Select(attrs={'class': 'form'}))
     product_quantity = forms.IntegerField(widget=forms.widgets.NumberInput(attrs={'class': 'form'}))
 
     class Meta:
