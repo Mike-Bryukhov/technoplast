@@ -1,6 +1,16 @@
 body {
     margin: 0;
+}
+
+
+.wrapper {
+    max-width: 1080px;
+    margin: 0px auto 0px auto;
     height: 100vh;
+}
+
+.main {
+    min-height: 100%;
 }
 
 
@@ -17,10 +27,11 @@ body {
     max-width: 1080px;
     height: 354px;
 
-    background-image: url("./../img/header/header_bg.jpg");
+    background-image: url("../../img/landingby/header/header_bg.jpg");
     background-size: cover;
     background-position: center;
 }
+
 
 .header-title-1 {
     margin: 0px auto 0px auto;
@@ -38,23 +49,6 @@ body {
 }
 
 
-/* SELLING */
-
-.selling {
-    margin: 0px auto 0px auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    max-width: 1080px;
-    height: 300px;
-
-    background-size: cover;
-    background-position: center;
-}
-
 .header-title-2 {
     margin: 0px auto 0px auto;
 
@@ -67,8 +61,8 @@ body {
     text-align: center;
 
     color: #000000;
-
 }
+
 
 .header-subtitle {
     margin: 0px auto 0px auto;
@@ -83,24 +77,50 @@ body {
     color: #000000;
 }
 
+
 .product-pics {
     margin: 25px auto 0px auto;
 
     max-width: 1080px;
     height: 380px;
 
-    background-image: url("./../img/selling/products.png");
+    background-image: url("../../img/landingby/selling/products.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
 
+/* MAIN */
+
+.forms-area {
+    padding-bottom: 310px;
+    /*min-height: 100%;*/
+}
+
+
+.form {
+    margin: 50px 10% 50px 10%;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 1.3;
+
+    background-color: transparent;
+    color: #000000;
+}
+
+
 .sell-container {
     margin: 60px auto 35px auto;
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+
 }
+
+
+/* BUTTON */
 
 .sell-button {
     height: 140px;
@@ -124,8 +144,8 @@ body {
     text-align: center;
     text-decoration: none;
     color: #FFFFFF;
-
 }
+
 
 .sell-button:active {
   background: linear-gradient(rgba(161, 98, 20, 1), rgba(97, 56, 7, 1));
@@ -133,28 +153,23 @@ body {
    0 0 1px rgba(0,0,0,.5) inset,
    0 4px 6px rgba(0,0,0,.5) inset,
    0 1px 1px rgba(255,255,255,.1);
-
 }
+
 
 /* FOOTER */
 
 .footer {
-    margin: 0px auto 0px auto;
-
-    height: 460px;
+    margin-top: -300px;
+    height: 300px;
     max-width: 1080px;
 
-    background-image: url("./../img/footer/grass.png");
+    background-image: url("../../img/landingby/footer/grass.png");
     background-size: cover;
     background-position: center;
-
 }
 
 .contacts {
-    margin: 0px auto 0px auto;
-
-    padding-top: 200px;
-    padding-bottom: 80px;
+    padding: 10% 5% 10px 5%;
 
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -165,7 +180,6 @@ body {
     background-color: transparent;
     color: #FFFFFF;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
-
 }
 
 .none {

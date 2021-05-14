@@ -1,35 +1,13 @@
-{% load static %}
+{% extends 'landingby/layout.html' %}
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Технопласт сервис</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'landingby/main.css' %}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <div class="header">
-        <h3 class="header-title-1">Нужны Деньги?</h3>
-    </div>
-
+{% block content %}
     <div class="selling">
         <h1 class="header-title-2">Мы Покупаем!</h1>
         <p class="header-subtitle">б\у полипропиленовые<br>ящики и биг-бэги</p>
-
     </div>
+
     <div class="product-pics"></div>
     <div class="sell-container">
-<!--        <div class="sell-button">ПРОДАТЬ!</div>-->
         <a href="#" class="sell-button">ПРОДАТЬ!</a>
     </div>
-    <div class="footer">
-        <div class="contacts">ТОВ "Технопласт Сервiс"<br>Україна, м. Суми, вул. Iвана Сiрка 43<br>тел. 050-999-99-99</div>
-    </div>
-
-</body>
-</html>
+{% endblock %}

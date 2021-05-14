@@ -24,7 +24,7 @@ class Supplier(models.Model):
 
 
 class ProductType(models.Model):
-    """  """
+    """  """                            # Ещё стрельнет способ выбора....
     PRODUCT_CHOICES = [
         ('мешки, кг', 'Мешки - кг'),
         ('ящики, шт', 'Ящики - шт'),
