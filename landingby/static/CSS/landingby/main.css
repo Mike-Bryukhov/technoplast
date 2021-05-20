@@ -50,7 +50,7 @@ body {
 
 
 .header-title-2 {
-    margin: 0px auto 0px auto;
+    margin: 0px 8% 0px 8%;
 
     font-family: 'Rubik', sans-serif;
     padding-top: 50px;
@@ -65,7 +65,7 @@ body {
 
 
 .header-subtitle {
-    margin: 0px auto 0px auto;
+    margin: 0px 5% 0px 5%;
 
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
@@ -75,6 +75,10 @@ body {
 
     background-color: transparent;
     color: #000000;
+}
+
+.error-msg {
+
 }
 
 
@@ -94,7 +98,6 @@ body {
 
 .forms-area {
     padding-bottom: 310px;
-    /*min-height: 100%;*/
 }
 
 

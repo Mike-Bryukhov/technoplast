@@ -5,16 +5,15 @@
 {% block content %}
 <form action="{% url 'feedback' %}" method="post">
     {% csrf_token %}
-<!--    <p class="form"> Ф.И.О. <br> {{ form_for_feedback.supplier_name }}</p>-->
-<!--    <p class="form"> Телефон: +380 <br> {{ form_for_feedback.supplier_mobile }}</p>-->
-<!--    <p class="form"> @mail: <br> {{ form_for_feedback.supplier_email }}</p>-->
-    {{ form_for_feedback.as_p }}
+    <p class="form"> Ф.И.О.:<br> {{ form_for_feedback.supplier_name }}</p>
+    <p class="form"> Телефон (+38):<br> {{ form_for_feedback.supplier_mobile }}</p>
+    <p class="form"> Адрес электронной почты:<br> {{ form_for_feedback.supplier_email }}</p>
 
-    <span>{{ error }}</span>
+    <span class="error-msg">{{ error }}</span>
 </form>
 
     <div class="sell-container">
-        <a href="{% url 'index' %}" class="sell-button" type="submit">Далее #2</a>
+        <a href="{% url 'complete' %}" class="sell-button" type="submit">Далее</a>
     </div>
 
 {% endblock %}

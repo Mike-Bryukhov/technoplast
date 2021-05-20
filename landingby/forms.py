@@ -3,15 +3,20 @@ from .models import *
 
 
 class SupplierForm(forms.ModelForm):
-    supplier_name = forms.ChoiceField(widget=forms.widgets.Select(attrs={'class': 'form'}))
-    supplier_mobile = forms.IntegerField(widget=forms.widgets.NumberInput(attrs={'class': 'form'}))
-    supplier_email = forms.EmailField(widget=forms.widgets.EmailInput(attrs={'class': 'form'}))
+    supplier_name = forms.CharField(max_length=50, min_length=2, required=True,
+                                    widget=forms.widgets.TextInput(attrs={'class': 'form',
+                                                                          'placeholder': 'Как к вам обращаться?'}))
+    supplier_mobile = forms.CharField(max_length=12, min_length=12, required=True,
+                                      widget=forms.widgets.TextInput(attrs={'class': 'form',
+                                                                            'placeholder': '050123456789'}))
+    supplier_email = forms.EmailField(widget=forms.widgets.EmailInput(attrs={'class': 'form',
+                                                                             'placeholder': 'адрес @-mail'}))
 
     class Meta:
         model = Supplier
         fields = {'supplier_name', 'supplier_mobile', 'supplier_email'}
         labels = {'supplier_name': 'Ф.И.О.',
-                  'supplier_mobile': 'Телефон: +380',
+                  'supplier_mobile': 'Телефон: +38',
                   'supplier_email': '@mail:'}
 
 

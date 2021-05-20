@@ -7,7 +7,7 @@ class Supplier(models.Model):
     Boolean "markers" probably will be refactored on customers demand"""
 
     supplier_name = models.CharField('Имя поставщика:', max_length=50)
-    supplier_mobile = models.PositiveIntegerField('Телефон поставщика: +380')  # work in progress
+    supplier_mobile = models.CharField('Телефон поставщика: +380', max_length=12)
     supplier_email = models.EmailField('@mail:')  # work in progress
     supplier_status = models.BooleanField('Статус "Поставщик"', default=True)
     customer_status = models.BooleanField('Статус "Покупатель"', default=False)
@@ -23,7 +23,7 @@ class Supplier(models.Model):
 
 
 class ProductType(models.Model):
-    """ Only a simple choice now. Probably will be refactored on customers demand"""
+    """ It's only a simple choice now. Probably will be refactored on customers demand"""
     PRODUCT_CHOICES = [
         ('мешки, кг', 'Мешки - кг'),
         ('ящики, шт', 'Ящики - шт'),
@@ -40,7 +40,10 @@ class ProductType(models.Model):
 
 
 class ProductOrder(models.Model):
-    """Suppose to be a 'base' of the product ordering form"""
+    """Suppose to be a 'base' of the product ordering form.
+    At the moment intended to be used via admin panel by customer for business coordination activity
+    No accountancy features were requested"""
+
     supplier_name = models.ForeignKey(Supplier, on_delete=models.PROTECT, verbose_name='Имя поставщика')
     product_type = models.ForeignKey(ProductType, on_delete=models.PROTECT, verbose_name='Тип тары')
     product_quantity = models.PositiveSmallIntegerField('Количество', default=1)
