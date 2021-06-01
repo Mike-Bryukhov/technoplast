@@ -8,7 +8,7 @@ class Supplier(models.Model):
 
     supplier_name = models.CharField('Имя поставщика:', max_length=50)
     supplier_mobile = models.CharField('Телефон поставщика: +380', max_length=12)
-    supplier_email = models.EmailField('@mail:')  # work in progress
+    supplier_email = models.EmailField('@mail:', blank=True)
     supplier_status = models.BooleanField('Статус "Поставщик"', default=True)
     customer_status = models.BooleanField('Статус "Покупатель"', default=False)
     loyalty_status = models.BooleanField('Является участником программы лояльности', default=False)

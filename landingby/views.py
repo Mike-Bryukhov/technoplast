@@ -14,7 +14,7 @@ def order_page(request):
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
             order_form.save()
-            return redirect('feedback')  # Куда проваливаются отсюда?
+            return redirect('feedback')
         else:
             error_message = 'Ошибка: Введенные данные некоррктны'
 
@@ -30,10 +30,11 @@ def feedback_page(request):
     error_message = ''
     if request.method == 'POST':
         supplier_feedback = SupplierForm(request.POST)
-        pure_phone_number = re.findall(r'\d-{12,12}', supplier_feedback.supplier_mobile())
-        supplier_fb_clean_mob = supplier_feedback.supplier_mobile(pure_phone_number)
-        if supplier_fb_clean_mob.is_valid():
-            supplier_fb_clean_mob.save()
+        phone_numbers_only = re.findall(r'0\d{11}$', supplier_feedback.supplier_mobile())
+        supplier_feedback.supplier_mobile = phone_numbers_only
+
+        if supplier_feedback.is_valid():
+            supplier_feedback.save()
             return redirect('complete')
         else:
             error_message = 'Ошибка: Введенные данные некоррктны'
