@@ -10,7 +10,9 @@ def index(request):
 
 def order_page(request):
     error_message = ''
-    if request.method == 'POST':
+    if request.method == 'post':
+        post_message = 'post sent'  # debugging test message
+        print(post_message)         # debugging test message
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
             order_form.save()
