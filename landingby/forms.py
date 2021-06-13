@@ -9,15 +9,12 @@ class SupplierForm(forms.ModelForm):
     supplier_mobile = forms.CharField(max_length=12, min_length=12, required=True,
                                       widget=forms.widgets.TextInput(attrs={'class': 'form',
                                                                             'placeholder': '050123456789'}))
-    supplier_email = forms.EmailField(widget=forms.widgets.EmailInput(attrs={'class': 'form',
+    supplier_email = forms.EmailField(required=False, widget=forms.widgets.EmailInput(attrs={'class': 'form',
                                                                              'placeholder': 'адрес @-mail'}))
 
     class Meta:
         model = Supplier
         fields = {'supplier_name', 'supplier_mobile', 'supplier_email'}
-        labels = {'supplier_name': 'Ф.И.О.',
-                  'supplier_mobile': 'Телефон: +38',
-                  'supplier_email': '@mail:'}
 
 
 class OrderForm(forms.ModelForm):
@@ -28,5 +25,3 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = ProductOrder
         fields = {'product_type', 'product_quantity'}
-        labels = {'product_type': 'Вид полипропиленовой тары',
-                  'product_quantity': 'Количество'}

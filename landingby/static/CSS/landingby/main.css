@@ -118,6 +118,16 @@ body {
 
 }
 
+.error-msg {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 46px;
+    line-height: 1.3;
+    text-align: center;
+
+    background-color: transparent;
+    color: #e32020;
+}
 
 /* BUTTON */
 
