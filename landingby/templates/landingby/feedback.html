@@ -3,17 +3,12 @@
 {% block title %}Оформление заказа на Продажу{% endblock %}
 
 {% block content %}
-<form action="{% url 'feedback' %}" method="post">
+<form action="{% url 'feedback' %}" method="POST">
     {% csrf_token %}
     <p class="form"> Ф.И.О.:<br> {{ form_for_feedback.supplier_name }}</p>
     <p class="form"> Телефон (+38):<br> {{ form_for_feedback.supplier_mobile }}</p>
     <p class="form"> Адрес электронной почты:<br> {{ form_for_feedback.supplier_email }}</p>
-
+    <input class="sell-button" type="submit">
     <span class="error-msg">{{ error }}</span>
 </form>
-
-    <div class="sell-container">
-        <a href="{% url 'complete' %}" class="sell-button" type="submit">Далее</a>
-    </div>
-
 {% endblock %}

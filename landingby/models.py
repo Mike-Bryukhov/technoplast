@@ -4,7 +4,7 @@ from django.db import models
 class Supplier(models.Model):
     """This entity is Not intended as active 'user record' at the moment, only for database;
     supplier unique ID is implemented by framework itself.
-    Boolean "markers" probably will be refactored on customers demand"""
+    Boolean "markers" probably will be refactored on app owners demand"""
 
     supplier_name = models.CharField('Имя поставщика:', max_length=50)
     supplier_mobile = models.CharField('Телефон поставщика: +380', max_length=12)
@@ -23,7 +23,8 @@ class Supplier(models.Model):
 
 
 class ProductType(models.Model):
-    """ It's only a simple choice now. Probably will be refactored on customers demand"""
+    """ It's only a simple choice of product types now.
+    Probably will be refactored on owners demand in future"""
     PRODUCT_CHOICES = [
         ('мешки, кг', 'Мешки - кг'),
         ('ящики, шт', 'Ящики - шт'),
@@ -40,9 +41,9 @@ class ProductType(models.Model):
 
 
 class ProductOrder(models.Model):
-    """Suppose to be a 'base' of the product ordering form.
-    At the moment intended to be used via admin panel by customer for business coordination activity
-    No accountancy features were requested"""
+    """Suppose to be a 'base' for the product ordering form.
+    At the moment intended to be used via admin panel by app owner for business coordination purposes
+    No accountancy or "external connection" features were requested"""
 
     supplier_name = models.ForeignKey(Supplier, on_delete=models.PROTECT, verbose_name='Имя поставщика')
     product_type = models.ForeignKey(ProductType, on_delete=models.PROTECT, verbose_name='Тип тары')
