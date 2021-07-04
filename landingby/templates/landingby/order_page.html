@@ -5,16 +5,16 @@
 {% block content %}
 <form action="{% url 'order' %}" method="POST">
     {% csrf_token %}
-    <p class="form"> Ф.И.О.:<br> {{ customer_data.supplier_name }}</p>
-    <p class="form"> Телефон (+38):<br> {{ customer_data.supplier_mobile }}</p>
-    <p class="form"> Адрес электронной почты:<br> {{ customer_data.supplier_email }}</p>
+    <p class="form"> Ф.И.О.:<br> {{ order_data.supplier_name }}</p>
+    <p class="form"> Телефон (+38):<br> {{ order_data.supplier_mobile }}</p>
+    <p class="form"> Адрес электронной почты:<br> {{ order_data.supplier_email }}</p>
     <p class="form"> Выберите тип товара на продажу <br> {{ order_data.product_type }}</p>
     <p class="form"> Укажите количество <br> {{ order_data.product_quantity }}</p>
 
     <span class="error-msg">{{ error }}</span>
 
     <div class="sell-container">
-        <input class="sell-button" type="submit">
+        <input class="sell-button" type="submit" value="Готово">
     </div>
 </form>
 {% endblock %}
