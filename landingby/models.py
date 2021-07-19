@@ -3,7 +3,7 @@ from django.db import models
 
 class ProductType(models.Model):
     """ It's only a simple choice of product types now.
-    Probably will be refactored on owners demand in future"""
+    May be refactored on demand in future"""
     PRODUCT_CHOICES = [
         ('мешки, кг', 'Мешки - кг'),
         ('ящики, шт', 'Ящики - шт'),
@@ -37,4 +37,4 @@ class ProductOrder(models.Model):
         ordering = ['order_datetime']
 
     def __str__(self):
-        return f'Заказ №{self.pk} поставщика {self.supplier_name} от {self.order_datetime}'
+        return f'Заказ №{self.pk} поставщика {self.supplier_name, self.supplier_mobile} от {self.order_datetime}'
