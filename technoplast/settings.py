@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import os
+# import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landingby.apps.LandingbyConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -122,5 +123,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    # '/static/landingby/',
+
 ]
+
+
+RECAPTCHA_PUBLIC_KEY = '6LexmewbAAAAABb57efRIlT_vp3zwFjfBBVdwYG6'
+RECAPTCHA_PRIVATE_KEY = '6LexmewbAAAAAD8H4594Hp7lDuau-61dOvPp9kWM'
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHHOLD = 0.5
